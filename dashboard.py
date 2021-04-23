@@ -84,6 +84,7 @@ if option == 'News':
             news = data['articles'][i]['title']
             st.header(news)
            
+            st.write('______'
             
             image = data['articles'][i]['urlToImage']
             try:
