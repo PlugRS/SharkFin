@@ -9,7 +9,6 @@ import json
 import yfinance as yf
 import pandas as pd
 
-
 auth = tweepy.OAuthHandler(config.TWITTER_CONSUMER_KEY, config.TWITTER_CONSUMER_SECRET)
 auth.set_access_token(config.TWITTER_ACCESS_TOKEN, config.TWITTER_ACCESS_TOKEN_SECRET)
 
@@ -17,6 +16,8 @@ api = tweepy.API(auth)
 
 
 option = st.sidebar.selectbox("Select Dashboard:", ('News', 'Twitter','Global','Stock Chart'))
+st.header(option)
+st.write('______')
 
 if option == 'Twitter':
     for username in config.TWITTER_USERNAMES:
@@ -76,7 +77,7 @@ if option == 'News':
     newstype = st.sidebar.selectbox("Select:", ('Top Headlines', 'Business', 'Technology'))
     if newstype ==  'Business':
         st.header('Business News')
-        r = requests.get('API KEY FROM NEWS API')
+        r = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=0445aaf7459344f0a5624b61cdcc0594')
         data = json.loads(r.content)
 
         for i in range(15):
@@ -103,7 +104,7 @@ if option == 'News':
     if newstype ==  'Top Headlines':
         
         st.header('Top Headlines')
-        r = requests.get('')
+        r = requests.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=0445aaf7459344f0a5624b61cdcc0594')
         data = json.loads(r.content)
 
         for i in range(15):
@@ -127,7 +128,7 @@ if option == 'News':
     
     if newstype == 'Technology':
         st.header('Technology News')
-        r = requests.get('')
+        r = requests.get('https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=0445aaf7459344f0a5624b61cdcc0594')
         data = json.loads(r.content)
 
         for i in range(15):
@@ -149,9 +150,6 @@ if option == 'News':
             url = data['articles'][i]['url']
             st.write(url)
 
-
-
-        
 
 
 
