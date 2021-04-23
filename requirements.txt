@@ -5,3 +5,8 @@
  requests
  tweepy
  requests
+ numpy 
+ config
+ datetime
+ timedelta
+ json
