@@ -16,7 +16,6 @@ api = tweepy.API(auth)
 
 
 option = st.sidebar.selectbox("Select Dashboard:", ('News', 'Twitter','Global','Stock Chart'))
-st.header(option)
 
 if option == 'Twitter':
     for username in config.TWITTER_USERNAMES:
