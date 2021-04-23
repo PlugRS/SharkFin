@@ -82,7 +82,7 @@ if option == 'News':
 
         for i in range(15):
             news = data['articles'][i]['title']
-            st.header(news)
+            st.subheader(news)
            
             st.write('______')
             
@@ -111,7 +111,7 @@ if option == 'News':
         for i in range(15):
             news = data['articles'][i]['title'] #branching in
             st.subheader(news)
-            
+            st.write('______')
             image = data['articles'][i]['urlToImage']
             try:
                 st.image(image)
@@ -135,6 +135,7 @@ if option == 'News':
         for i in range(15):
             news = data['articles'][i]['title'] #branching in
             st.subheader(news)
+            st.write('______')
             image = data['articles'][i]['urlToImage']
 
             try:
