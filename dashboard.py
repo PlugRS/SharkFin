@@ -13,7 +13,7 @@ import pandas as pd
 auth = tweepy.OAuthHandler(config.TWITTER_CONSUMER_KEY, config.TWITTER_CONSUMER_SECRET)
 auth.set_access_token(config.TWITTER_ACCESS_TOKEN, config.TWITTER_ACCESS_TOKEN_SECRET)
 
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 
 option = st.sidebar.selectbox("Select Dashboard:", ('News', 'Twitter','Global','Stock Chart'))
